@@ -1,0 +1,190 @@
+///////////////////////////////////////////////
+package mx.unam.aragon.fes;
+
+/**
+ *
+ * @author GUILLERMO AXEL SANCHEZ OJEDA
+ */
+public class Empleado extends Persona {
+
+    private int numeroEmpleado;
+    private String departamento;
+    private float sueldo;
+    private int horasExtras;
+    private Direccion domicilio;
+
+    public Empleado() {
+    }
+
+    public Empleado(int numeroEmpleado, String departamento, float sueldo, int horasExtras, Direccion domicilio) {
+        this.numeroEmpleado = numeroEmpleado;
+        this.departamento = departamento;
+        this.sueldo = sueldo;
+        this.horasExtras = horasExtras;
+        this.domicilio = domicilio;
+    }
+
+    public Empleado(int numeroEmpleado, String departamento, float sueldo, int horasExtras, Direccion domicilio, String nombre, String apMaterno, String apPaterno, int edad, String curp) {
+        super(nombre, apMaterno, apPaterno, edad, curp);
+        this.numeroEmpleado = numeroEmpleado;
+        this.departamento = departamento;
+        this.sueldo = sueldo;
+        this.horasExtras = horasExtras;
+        this.domicilio = domicilio;
+    }
+
+    public int getNumeroEmpleado() {
+        return numeroEmpleado;
+    }
+
+    public void setNumeroEmpleado(int numeroEmpleado) {
+        this.numeroEmpleado = numeroEmpleado;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public float getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public int getHorasExtras() {
+        return horasExtras;
+    }
+
+    public void setHorasExtras(int horasExtras) {
+        this.horasExtras = horasExtras;
+    }
+
+    public Direccion getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Direccion domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "numeroEmpleado=" + numeroEmpleado + ", departamento=" + departamento + ", sueldo=" + sueldo + ", horasExtras=" + horasExtras + ", domicilio=" + domicilio + '}';
+    }
+
+    public float calcularSueldo() {
+        //Horas extras a 150 pesos
+        float sueldoTotal = 0.0f;
+        sueldoTotal = this.sueldo + (this.horasExtras * 150.0f);
+        return sueldoTotal;
+    }
+
+}
+///////////////////////////////////////////////////////////////////////////////////////
+package mx.unam.aragon.fes;
+
+/**
+ *
+ * @author GUILLERMO AXEL SANCHEZ OJEDA
+ */
+public class Direccion {
+    private String calle;
+    private String numero;
+    private String colonia;
+    private String delegacion;
+    private String estado;
+    private String cp;
+
+    public Direccion() {
+    }
+
+    public Direccion(String calle, String numero, String colonia, String delegacion, String estado, String cp) {
+        this.calle = calle;
+        this.numero = numero;
+        this.colonia = colonia;
+        this.delegacion = delegacion;
+        this.estado = estado;
+        this.cp = cp;
+    }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    public String getDelegacion() {
+        return delegacion;
+    }
+
+    public void setDelegacion(String delegacion) {
+        this.delegacion = delegacion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Direccion{" + "calle=" + calle + "\n numero=" + numero + "\n colonia=" + colonia + "\n delegacion=" + delegacion + "\n estado=" + estado + "\n cp=" + cp + '}';
+    }
+    
+    
+    
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package mx.unam.aragon.fes;
+
+/**
+ *
+ * @author GUILLERMO AXEL SANCHEZ OJEDA
+ */
+public class UsarEmpleado {
+    public static void main(String[] args) {
+        Empleado emp1 = new Empleado();
+        emp1.setNombre("José");
+        emp1.setSueldo(10000.0f);
+        emp1.setHorasExtras(10);
+        float cobro = emp1.calcularSueldo();
+        System.out.println("Ggran total: "+cobro);
+        System.out.println(emp1.toString());
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
