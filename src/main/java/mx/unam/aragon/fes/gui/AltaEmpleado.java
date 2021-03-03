@@ -6,6 +6,7 @@
 
 package mx.unam.aragon.fes.gui;
 
+import javax.swing.JOptionPane;
 import  mx.unam.aragon.fes.Empleado;
 
 
@@ -396,6 +397,8 @@ public class AltaEmpleado extends javax.swing.JFrame {
                 .add(27, 27, 27))
         );
 
+        jTabbedPane1.getAccessibleContext().setAccessibleName("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -435,12 +438,24 @@ public class AltaEmpleado extends javax.swing.JFrame {
        System.out.println("Nuevo Registro!!"); 
        this.limpiarFormulario();
        Empleado emp = new Empleado();
-       emp.setNombre(this.jTexField1.getText());
-       emp.setApPaterno.(this.jTexField2.getText());
-       emp.setApMaterno.(this.jTexField3.getText());
-       emp.setEdad.(Integer.parseInt(jTexField4.getText()));
-       emp.setCurp.(jTexField5.getText());
+       emp.setNombre(this.jTextField1.getText());
+       emp.setApPaterno(this.jTextField2.getText());
+       emp.setApMaterno(this.jTextField3.getText());
+       emp.setEdad(Integer.parseInt(jTextField4.getText()));
+       emp.setCurp(jTextField5.getText());
        emp.getDomicilio().setCalle(this.jTextField6.getText());
+       emp.getDomicilio().setNumero(this.jTextField7.getText());
+       emp.getDomicilio().setColonia(this.jTextField8.getText());
+       emp.getDomicilio().setDelegacion(this.jTextField9.getText());
+       emp.getDomicilio().setEstado(this.jTextField10.getText());
+       emp.getDomicilio().setCp(this.jTextField11.getText());
+       emp.setSueldo(Integer.parseInt(this.jTextField12.getText()));
+       emp.setNumeroEmpleado(Integer.parseInt(this.jTextField13.getText()));
+       emp.setDepartamento(this.jTextField14.getText());
+       emp.setHorasExtras(Integer.parseInt(this.jTextField15.getText()));
+       int confirmar = JOptionPane.showConfirmDialog(this, "¿Deseas guardar estos datos?");
+       
+       
     }//GEN-LAST:event_jButton5MouseClicked
     
     private void limpiarFormulario(){
@@ -461,6 +476,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
         this.jTextField13.setText("");
         this.jTextField14.setText("");
         this.jTextField14.setColumns(10);
+        this.jTextField15.setText("");
         
         
     }
